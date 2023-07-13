@@ -8,7 +8,6 @@ import io
 url = "https://sports.news.naver.com/kbaseball/record/index?category=kbo"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
-watermark = plt.imread("./watermark.png")
 table = soup.find(id="regularTeamRecordList_table")
 
 if table is None:
@@ -90,7 +89,10 @@ for i, (logo, value) in enumerate(zip(team_logos, games_behind_values)):
     ax.add_artist(ab)
     ax.get_children()[i].set_color(colors.get(team_names[i], "blue"))
 
-fig.figimage(watermark, resize=False, alpha=0.9,xo=7, yo=120)
+ax.text(0.5, 0.5, 'github.com/gwongibeom/kbo_ranking_visualize \n 디시인사이드 한화이글스 갤러리', transform=ax.transAxes,
+        fontsize=15, color='gray', alpha=0.5,
+        ha='center', va='center', rotation=34)
+
 plt.tight_layout()
 plt.savefig(f'KBO{today}.png')
 plt.show()
