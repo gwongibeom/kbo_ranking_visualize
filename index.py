@@ -93,5 +93,5 @@ ax.text(0.5, 0.5, 'github.com/gwongibeom/kbo_ranking_visualize', transform=ax.tr
         fontsize=15, color='gray', alpha=0.5,
         ha='center', va='center', rotation=34)
 plt.tight_layout()
-plt.savefig(f'./KBO{today}.png',dpi=600,format = 'png')
+plt.savefig(f'./static/KBO{today}.png',dpi=600,format = 'png')
 plt.show()
