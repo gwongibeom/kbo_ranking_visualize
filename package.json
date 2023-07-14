@@ -4,7 +4,7 @@
   "description": "requests+matplotlib+깃허브 액션 크보 순위 시각화 프로젝트",
   "main": "./app.js",
   "scripts": {
-    "start": "node ./app.js"
+    "start": "./index.js"
   },
   "repository": {
     "type": "git",
