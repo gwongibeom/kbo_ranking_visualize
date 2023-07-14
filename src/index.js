@@ -5,7 +5,7 @@ const app = express()
 app.use(express.static('static'))
 
 app.get('/',(req,res) => {
-    return res.sendFile(__dirname+'/index.html')
+    res.sendFile(__dirname+'/index.html')
 })
 
 app.use((req, res, next) => {
