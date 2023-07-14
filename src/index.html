@@ -3,8 +3,8 @@
 <head>
     <title>크보 게임차 시각화</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="./font.css">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="../static/font.css">
+    <link rel="stylesheet" href="../static/index.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         function redirectToImage() {
@@ -18,7 +18,7 @@
             var month = ("0" + (selectedDate.getMonth() + 1)).slice(-2);
             var day = ("0" + selectedDate.getDate()).slice(-2);
 
-            var imageUrl = "/KBO" + year + "-" + month + "-" + day + ".png";
+            var imageUrl = "/static/KBO" + year + "-" + month + "-" + day + ".png";
 
             window.location.href = imageUrl;
         }
