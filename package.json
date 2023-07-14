@@ -1,10 +1,10 @@
 {
   "name": "kbo_ranking_visualize",
   "version": "2.2.0",
-  "description": "requests+matplotlib+깃허브 액션 크보 순위 시각화 프로젝트",
-  "main": "./app.js",
+  "description": "requests + matplotlib + 깃허브 액션 크보 순위 시각화 프로젝트",
+  "main": "./src/index.js",
   "scripts": {
-    "start": "./index.js"
+    "start": "node ./src/index.js"
   },
   "repository": {
     "type": "git",
