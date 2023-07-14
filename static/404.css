@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    color: #dedede;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #202026;
+}
+p{
+    text-align: center;
+}
+body > *{
+    margin: 20px;
+}
+img{
+    max-width: 90vw;
+}

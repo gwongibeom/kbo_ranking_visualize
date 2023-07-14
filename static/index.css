@@ -1,0 +1,59 @@
+body {
+    background-color: #202026;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#datepicker{
+    margin-bottom: 20px;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-container input[type="button"] {
+    width: 100%;
+    background-color: #3B6EFF;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.made-by {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px; /* 수정된 부분: 폰트 크기를 조정하세요 */
+}
+
+.github-logo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.github-logo img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 5px;
+}

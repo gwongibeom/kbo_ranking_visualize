@@ -1,75 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Date Image Redirect</title>
+    <title>크보 게임차 시각화</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        #datepicker{
-            margin-bottom: 20px;
-        }
-
-        .form-container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .form-container input[type="button"] {
-            width: 100%;
-            background-color: #3B6EFF;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .made-by {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .github-logo {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .github-logo img {
-            width: 30px;
-            height: 30px;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="./font.css">
+    <link rel="stylesheet" href="index.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         function redirectToImage() {
             var selectedDate = flatpickr("#datepicker").selectedDates[0];
             if (!selectedDate) {
-                alert("Please select a date");
+                alert("날짜를 선택해주세요.");
                 return;
             }
 
