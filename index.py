@@ -52,7 +52,7 @@ sorted_data = sorted(zip(team_logos, team_names, games_behind_values), key=lambd
 team_logos, team_names, games_behind_values = zip(*sorted_data)
 
 fig, ax = plt.subplots(figsize=(5, 8))
-ax.bar(range(len(team_logos)), games_behind_values, zorder=2,)
+ax.bar(range(len(team_logos)), games_behind_values, zorder=2)
 
 ax.invert_xaxis()
 ax.set_xticks(range(len(team_logos)))
@@ -60,6 +60,7 @@ ax.set_xticklabels(team_names, rotation='horizontal')
 ax.invert_yaxis()
 
 today = datetime.date.today()
+current_time = datetime.datetime.now().strftime("%H:%M:%S")  # 현재 시간 포맷팅
 ax.set_title(f'KBO {today} 게임차', fontsize=16, fontweight='bold')
 
 colors = {
@@ -83,15 +84,13 @@ ax.set_yticks([i * 0.5 for i in range(int(max(games_behind_values) * 2) + 1)])
 
 ax.yaxis.grid(True, alpha=0.3, zorder=1)
 
-
 for i, (logo, value) in enumerate(zip(team_logos, games_behind_values)):
     ab = AnnotationBbox(logo, (i, value), frameon=False, pad=0.5)
     ax.add_artist(ab)
     ax.get_children()[i].set_color(colors.get(team_names[i], "blue"))
 
-ax.text(0.5, 0.5, 'github.com/gwongibeom/kbo_ranking_visualize', transform=ax.transAxes,
+ax.text(0.5, 0.5, f'github.com/gwongibeom/kbo_ranking_visualize \n {today} {current_time}', transform=ax.transAxes,
         fontsize=15, color='gray', alpha=0.5,
         ha='center', va='center', rotation=34)
 plt.tight_layout()
-plt.savefig(f'./static/KBO{today}.png',dpi=600,format = 'png')
 plt.show()
