@@ -1,0 +1,35 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Daily kbo visualize Commit
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Execute app.py
+        run: python app.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "daily visualize BOT"
+          git config --global user.email "k201gun@kakao.com"
+          git add .
+          git commit -m "Daily kbo visualize Commit"
+          git push
