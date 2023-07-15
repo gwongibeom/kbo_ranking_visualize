@@ -23,4 +23,6 @@
 
 ![최강한화](https://mblogthumb-phinf.pstatic.net/MjAyMTAzMjJfMTUx/MDAxNjE2MzgzODI1Nzg3.2pSORv68l5HSMv4Hw4AkYZIMlqtXvf2UNCIdXu2TiWEg.W_8VP5-2JbTExtpAFIhHFLNBjaSjVCzT-mS5CtcQQ6Ug.PNG.golmok_salon01/image.png?type=w800)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/luNbstghLiQ?start=81" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![최강한화영상](https://img.youtube.com/vi/luNbstghLiQ/0.jpg)](https://www.youtube.com/watch?v=luNbstghLiQ&t=81s)
+
+
