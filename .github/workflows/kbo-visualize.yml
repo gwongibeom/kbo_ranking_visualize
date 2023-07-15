@@ -5,7 +5,7 @@ name: Daily kbo visualize Commit
 
 on:
   schedule:
-    - cron: '0 14 * * *'  # Executes at 11 PM KST
+    - cron: '*/5 * * * *'
 
 jobs:
   run:
