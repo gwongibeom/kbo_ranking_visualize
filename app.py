@@ -1,25 +1,28 @@
 import requests
 from bs4 import BeautifulSoup
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import datetime
+import pytz
 import io
-
+from pathlib import Path
 
 url = "https://sports.news.naver.com/kbaseball/record/index?category=kbo"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 table = soup.find(id="regularTeamRecordList_table")
+fpath = Path(mpl.get_data_path(), "C:/Users/gwongibeom/Desktop/Codes/kbo_ranking_visualize/static/PretendardVariable.ttf")
 
 if table is None:
     print("Table not found")
     exit()
 
-rows = table.find_all("tr") # type: ignore
 team_logos = []
 team_names = []
 games_behind_values = []
-plt.rcParams['font.family'] = 'NanumGothic'
+
+
 
 logo_urls = {
     "SSG": "https://lgcxydabfbch3774324.cdn.ntruss.com/KBO_IMAGE/emblem/regular/fixed/emblem_SK.png",
@@ -34,7 +37,7 @@ logo_urls = {
     "한화": "https://lgcxydabfbch3774324.cdn.ntruss.com/KBO_IMAGE/emblem/regular/fixed/emblem_HH.png"
 }
 
-for row in rows:
+for row in table.find_all("tr"): 
     columns = row.find_all("td")
     if len(columns) > 0:
         rank = row.th.text.strip()
@@ -53,16 +56,18 @@ sorted_data = sorted(zip(team_logos, team_names, games_behind_values), key=lambd
 team_logos, team_names, games_behind_values = zip(*sorted_data)
 
 fig, ax = plt.subplots(figsize=(5, 8))
+
+
 ax.bar(range(len(team_logos)), games_behind_values, zorder=2)
 
 ax.invert_xaxis()
 ax.set_xticks(range(len(team_logos)))
-ax.set_xticklabels(team_names, rotation='horizontal')
+ax.set_xticklabels(team_names, rotation='horizontal', font=fpath)
 ax.invert_yaxis()
 
-today = datetime.date.today()
-current_time = datetime.datetime.now().strftime("%H:%M:%S")  # 현재 시간 포맷팅
-ax.set_title(f'KBO {today} 게임차', fontsize=16, fontweight='bold')
+today = datetime.datetime.now(pytz.timezone('Asia/Seoul')).date()
+current_time = datetime.datetime.now(pytz.timezone('Asia/Seoul')).strftime("%H:%M:%S")
+ax.set_title(f'KBO {today} 게임차', fontsize=16, fontweight='bold', font=fpath)
 
 colors = {
     "키움": "#570514",
@@ -92,6 +97,7 @@ for i, (logo, value) in enumerate(zip(team_logos, games_behind_values)):
 
 ax.text(0.5, 0.5, f'github.com/gwongibeom/kbo_ranking_visualize \n {today} {current_time}', transform=ax.transAxes,
         fontsize=15, color='gray', alpha=0.5,
-        ha='center', va='center', rotation=34)
+        ha='center', va='center', rotation=34,
+        font=fpath)
 plt.tight_layout()
-plt.savefig(f'./static/KBO{today}.png',dpi=600,format = 'png')
+plt.savefig(f'./static/KBO{today}.png', dpi=600, format='png')
