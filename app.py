@@ -5,6 +5,7 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import datetime
 import io
 
+
 url = "https://sports.news.naver.com/kbaseball/record/index?category=kbo"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
@@ -93,4 +94,4 @@ ax.text(0.5, 0.5, f'github.com/gwongibeom/kbo_ranking_visualize \n {today} {curr
         fontsize=15, color='gray', alpha=0.5,
         ha='center', va='center', rotation=34)
 plt.tight_layout()
-plt.show()
+plt.savefig(f'./static/KBO{today}.png',dpi=600,format = 'png')
