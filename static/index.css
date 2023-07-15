@@ -20,6 +20,7 @@ h1 {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .form-container label {
@@ -56,4 +57,24 @@ h1 {
     height: 30px;
     vertical-align: middle;
     margin-right: 5px;
+}
+
+
+
+.today-kbo-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.today-kbo-container img {
+    width: 100%;
 }
