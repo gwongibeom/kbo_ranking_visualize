@@ -25,7 +25,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --global user.name "daily visualize BOT"
+          git config --global user.name "gwongibeom"
           git config --global user.email "k201gun@kakao.com"
           git add .
           git commit -m "Daily kbo visualize Commit"
