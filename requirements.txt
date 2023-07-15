@@ -1,5 +1,6 @@
 asttokens==2.2.1
 backcall==0.2.0
+beautifulsoup4==4.12.2
 blinker==1.6.2
 certifi==2022.9.24
 charset-normalizer==2.1.1
@@ -41,8 +42,11 @@ pure-eval==0.2.2
 Pygments==2.13.0
 pyparsing==3.0.9
 python-dateutil==2.8.2
+pywin32==305
 pyzmq==24.0.1
+requests==2.31.0
 six==1.16.0
+soupsieve==2.4.1
 stack-data==0.6.2
 tornado==6.2
 traitlets==5.7.0
@@ -50,4 +54,3 @@ urllib3==1.26.12
 wcwidth==0.2.5
 Werkzeug==2.3.4
 zipp==3.15.0
-requests==2.31.0
