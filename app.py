@@ -17,7 +17,7 @@ url = "https://sports.news.naver.com/kbaseball/record/index?category=kbo"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 table = soup.find(id="regularTeamRecordList_table")
-fpath = Path(mpl.get_data_path(), "/static/PretendardVariable.ttf")
+fpath = Path(mpl.get_data_path(), "/home/runner/work/kbo_ranking_visualize/kbo_ranking_visualize/static/PretendardVariable.ttf")
 
 if table is None:
     print("Table not found")
