@@ -7,6 +7,11 @@ import datetime
 import pytz
 import io
 from pathlib import Path
+import os
+print(__file__)
+print(os.path.realpath(__file__))
+print(os.path.abspath(__file__))
+
 
 url = "https://sports.news.naver.com/kbaseball/record/index?category=kbo"
 response = requests.get(url)
