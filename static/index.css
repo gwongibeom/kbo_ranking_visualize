@@ -2,6 +2,10 @@ body {
     background-color: #202026;
     margin: 0;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
