@@ -1,35 +1,66 @@
 name: Daily kbo visualize Commit
 
 on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: '*/60 * * * *'
+    push:
+        branches:
+            - main
+    schedule:
+        - cron: '*/60 * * * *'
 
 jobs:
-  run:
-    runs-on: ubuntu-latest
+    visualize:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: 3.9
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+            - name: Install dependencies
+              run: pip install -r requirements.txt
 
-      - name: Execute app.py
-        run: python app.py
+            - name: Execute app.py
+              run: python app.py
 
-      - name: Commit changes
-        run: |
-          git config --global user.name "gwongibeom"
-          git config --global user.email "k201gun@kakao.com"
-          git add .
-          git commit -m "Daily kbo visualize Commit"
-          git push
+            - name: Commit changes
+              run: |
+                  git config --global user.name "gwongibeom"
+                  git config --global user.email "k201gun@kakao.com"
+                  git add .
+                  git commit -m "Daily kbo visualize Commit"
+                  git push
+
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Connect deploy key
+              uses: cloudtype-github-actions/connect@v1
+              with:
+                  token: ${{ secrets.CLOUDTYPE_TOKEN }}
+                  ghtoken: ${{ secrets.GHP_TOKEN }}
+            - name: Deploy
+              uses: cloudtype-github-actions/deploy@v1
+              with:
+                  token: ${{ secrets.CLOUDTYPE_TOKEN }}
+                  project: gwongibeom/kbo
+                  stage: main
+                  yaml: |
+                      name: kbo-ranking-visualize
+                      app: node@18
+                      options:
+                        env:
+                          - name: NODE_ENV
+                            value: production
+                        ports: "4000"
+                        install: npm i
+                        start: npm start
+                      context:
+                        git:
+                          url: git@github.com:${{ github.repository }}.git
+                          ref: ${{ github.ref }}
