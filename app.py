@@ -100,8 +100,8 @@ for i, (logo, value) in enumerate(zip(team_logos, games_behind_values)):
     ax.add_artist(ab)
     ax.get_children()[i].set_color(colors.get(team_names[i], "blue"))
 
-ax.text(0.5, 0.5, f'kbo-ranking-visualize.onrender.com \n {today} {current_time}', transform=ax.transAxes,
-        fontsize=15, color='gray', alpha=0.5,
+ax.text(0.5, 0.5, f'kbo.gwon.us \n {today} {current_time}', transform=ax.transAxes,
+        fontsize=15, color='gray', alpha=0.7,
         ha='center', va='center', rotation=34,
         font=fpath)
 plt.tight_layout()
