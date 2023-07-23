@@ -12,6 +12,7 @@ print(__file__)
 print(os.path.realpath(__file__))
 print(os.path.abspath(__file__))
 
+print("🚀 Starting the visualization process...")
 
 url = "https://sports.news.naver.com/kbaseball/record/index?category=kbo"
 response = requests.get(url)
@@ -56,6 +57,9 @@ for row in table.find_all("tr"):
             team_names.append(team_name)
             games_behind = float(columns[6].text.strip())
             games_behind_values.append(games_behind)
+
+print(f"✅ Table found.")
+print("✅ Team logos and data fetched.")
 
 sorted_data = sorted(zip(team_logos, team_names, games_behind_values), key=lambda x: x[2], reverse=True)
 team_logos, team_names, games_behind_values = zip(*sorted_data)
@@ -106,3 +110,6 @@ ax.text(0.5, 0.5, f'kbo.gwon.us \n {today} {current_time}', transform=ax.transAx
         font=fpath)
 plt.tight_layout()
 plt.savefig(f'./static/KBO{today}.png', dpi=600, format='png')
+
+print("✅ Image saved successfully.")
+print("🎉 Visualization completed.")
