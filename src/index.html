@@ -1,168 +1,244 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>크보 게임차 시각화</title>
-    <link rel="stylesheet" href="../static/font.css">
-    <link rel="stylesheet" href="../static/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="apple-touch-icon" sizes="57x57" href="../static/fav/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../static/fav/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../static/fav/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../static/fav/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../static/fav/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../static/fav/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../static/fav/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../static/fav/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/fav/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../static/fav/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../static/fav/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/fav/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="google-site-verification" content="gqfAp1KUvboyWRfLkumdpvZURd0u2qZgNHVBnxdhiXE" />
-    <meta
-        name="description"
-        content="크보 게임차 편하게 볼 수 있는 사이트"
-    />
-    <meta property="og:image" content="https://kbo-ranking-visualize.onrender.com/static/og.png" />
-    <meta name="og:site_name" content="크보 게임차 시각화" />
-    <meta name="og:title" content="크보 게임차 시각화" />
-    <meta
-        name="og:description"
-        content="크보 게임차 편하게 볼 수 있는 사이트"
-    />
-    <meta name="og:type" content="website" />
-    <meta name="og:url" content="https://kbo-ranking-visualize.onrender.com/" />
-            <!-- Google tag (gtag.js) -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-DFNDCRLZFR"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-        
-                gtag('config', 'G-DFNDCRLZFR');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7445765260073172"
-        crossorigin="anonymous">
-    </script>
-</head>
-<body>
-    <!-- 최강한화 -->
-    <div class="form-container">
-        <img src="../static/hanhwa.jpg" class="logo">
-        <h1>크보 게임차 시각화</h1>
-        <form>
-            <label for="datepicker">날짜(7월 13일부터 크롤링됨):</label>
-            <input type="text" id="datepicker" name="datepicker" placeholder="날짜 선택" readonly>
-            <input type="button" value="Submit" onclick="redirectToImage()">
-        </form>
-        <p></p>
-        <p class="made-by">
-            Made by gwongibeom
-        </p>
-        <div class="github-logo">
-            <a href="https://github.com/gwongibeom/kbo_ranking_visualize">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMGMtNi42MjYgMC0xMiA1LjM3My0xMiAxMiAwIDUuMzAyIDMuNDM4IDkuOCA4LjIwNyAxMS4zODcuNTk5LjExMS43OTMtLjI2MS43OTMtLjU3N3YtMi4yMzRjLTMuMzM4LjcyNi00LjAzMy0xLjQxNi00LjAzMy0xLjQxNi0uNTQ2LTEuMzg3LTEuMzMzLTEuNzU2LTEuMzMzLTEuNzU2LTEuMDg5LS43NDUuMDgzLS43MjkuMDgzLS43MjkgMS4yMDUuMDg0IDEuODM5IDEuMjM3IDEuODM5IDEuMjM3IDEuMDcgMS44MzQgMi44MDcgMS4zMDQgMy40OTIuOTk3LjEwNy0uNzc1LjQxOC0xLjMwNS43NjItMS42MDQtMi42NjUtLjMwNS01LjQ2Ny0xLjMzNC01LjQ2Ny01LjkzMSAwLTEuMzExLjQ2OS0yLjM4MSAxLjIzNi0zLjIyMS0uMTI0LS4zMDMtLjUzNS0xLjUyNC4xMTctMy4xNzYgMCAwIDEuMDA4LS4zMjIgMy4zMDEgMS4yMy45NTctLjI2NiAxLjk4My0uMzk5IDMuMDAzLS40MDQgMS4wMi4wMDUgMi4wNDcuMTM4IDMuMDA2LjQwNCAyLjI5MS0xLjU1MiAzLjI5Ny0xLjIzIDMuMjk3LTEuMjMuNjUzIDEuNjUzLjI0MiAyLjg3NC4xMTggMy4xNzYuNzcuODQgMS4yMzUgMS45MTEgMS4yMzUgMy4yMjEgMCA0LjYwOS0yLjgwNyA1LjYyNC01LjQ3OSA1LjkyMS40My4zNzIuODIzIDEuMTAyLjgyMyAyLjIyMnYzLjI5M2MwIC4zMTkuMTkyLjY5NC44MDEuNTc2IDQuNzY1LTEuNTg5IDguMTk5LTYuMDg2IDguMTk5LTExLjM4NiAwLTYuNjI3LTUuMzczLTEyLTEyLTEyeiIvPjwvc3ZnPg==">
-            </a>
-        </div>
-    </div>
-    <ins class="kakao_ad_area" style="display:none;"
-        data-ad-unit = "DAN-C8q7vKqscLHKi4fM"
-        data-ad-width = "300"
-        data-ad-height = "250"></ins>
-    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-    <div class="today-kbo-container">
-        <h1>오늘자 게임차 바로보기</h1>
-        <span>1시간 간격으로 업데이트 됩니다.</span>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
-        flatpickr("#datepicker", {
-            dateFormat: "Y-m-d",
-            enableTime: false,
-            minDate: "2000-01-01",
-            maxDate: "2025-12-31",
-            locale: {
-                rangeSeparator: " - ",
-                weekdays: {
-                    shorthand: ["일", "월", "화", "수", "목", "금", "토"],
-                    longhand: [
-                        "일요일",
-                        "월요일",
-                        "화요일",
-                        "수요일",
-                        "목요일",
-                        "금요일",
-                        "토요일"
-                    ]
-                },
-                months: {
-                    shorthand: [
-                        "1월",
-                        "2월",
-                        "3월",
-                        "4월",
-                        "5월",
-                        "6월",
-                        "7월",
-                        "8월",
-                        "9월",
-                        "10월",
-                        "11월",
-                        "12월"
-                    ],
-                    longhand: [
-                        "1월",
-                        "2월",
-                        "3월",
-                        "4월",
-                        "5월",
-                        "6월",
-                        "7월",
-                        "8월",
-                        "9월",
-                        "10월",
-                        "11월",
-                        "12월"
-                    ]
-                }
+    <head>
+        <title>크보 게임차 시각화</title>
+        <link rel="stylesheet" href="../static/font.css" />
+        <link rel="stylesheet" href="../static/index.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="../static/fav/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="../static/fav/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="../static/fav/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="../static/fav/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="../static/fav/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="../static/fav/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="../static/fav/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="../static/fav/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../static/fav/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="../static/fav/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../static/fav/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="../static/fav/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../static/fav/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/manifest.json" />
+        <meta
+            name="google-site-verification"
+            content="gqfAp1KUvboyWRfLkumdpvZURd0u2qZgNHVBnxdhiXE"
+        />
+        <meta name="description" content="크보 게임차 편하게 볼 수 있는 사이트" />
+        <meta property="og:image" content="https://kbo.gwon.us/static/og.png" />
+        <meta name="og:site_name" content="크보 게임차 시각화" />
+        <meta name="og:title" content="크보 게임차 시각화" />
+        <meta name="og:description" content="크보 게임차 편하게 볼 수 있는 사이트" />
+        <meta name="og:type" content="website" />
+        <meta name="og:url" content="https://kbo.gwon.us/" />
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-DFNDCRLZFR"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+                dataLayer.push(arguments)
             }
-        });
-        function redirectToImage() {
-            var selectedDate = flatpickr("#datepicker").selectedDates[0];
-            if (!selectedDate) {
-                alert("날짜를 선택해주세요.");
-                return;
-            }
+            gtag('js', new Date())
 
-            var year = selectedDate.getFullYear();
-            var month = ("0" + (selectedDate.getMonth() + 1)).slice(-2);
-            var day = ("0" + selectedDate.getDate()).slice(-2);
-
-            var imageUrl = "/static/KBO" + year + "-" + month + "-" + day + ".png";
-
-            window.location.href = imageUrl;
-        }
-
-        function createTodayImageElement() {
-            var today = new Date();
-            var year = today.getFullYear();
-            var month = ("0" + (today.getMonth() + 1)).slice(-2);
-            var day = ("0" + today.getDate()).slice(-2);
-
-            var imageUrl = "../static/KBO" + year + "-" + month + "-" + day + ".png";
-
-            var imageElement = document.createElement("img");
-            imageElement.src = imageUrl;
-            imageElement.alt = "KBO " + year + "-" + month + "-" + day;
-
-            var todayContainer = document.querySelector(".today-kbo-container");
-            todayContainer.appendChild(imageElement);
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            createTodayImageElement();
-        });
+            gtag('config', 'G-DFNDCRLZFR')
         </script>
-</body>
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7445765260073172"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <!-- 최강한화 -->
+        <div class="form-container">
+            <img src="../static/hanhwa.jpg" class="logo" />
+            <h1>크보 게임차 시각화</h1>
+            <form>
+                <label for="datepicker">날짜(7월 13일부터 크롤링됨):</label>
+                <input
+                    type="text"
+                    id="datepicker"
+                    name="datepicker"
+                    placeholder="날짜 선택"
+                    readonly
+                />
+                <input type="button" value="Submit" onclick="redirectToImage()" />
+            </form>
+            <p></p>
+            <p class="made-by">Made by gwongibeom</p>
+            <div class="github-logo">
+                <a href="https://github.com/gwongibeom/kbo_ranking_visualize">
+                    <img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMGMtNi42MjYgMC0xMiA1LjM3My0xMiAxMiAwIDUuMzAyIDMuNDM4IDkuOCA4LjIwNyAxMS4zODcuNTk5LjExMS43OTMtLjI2MS43OTMtLjU3N3YtMi4yMzRjLTMuMzM4LjcyNi00LjAzMy0xLjQxNi00LjAzMy0xLjQxNi0uNTQ2LTEuMzg3LTEuMzMzLTEuNzU2LTEuMzMzLTEuNzU2LTEuMDg5LS43NDUuMDgzLS43MjkuMDgzLS43MjkgMS4yMDUuMDg0IDEuODM5IDEuMjM3IDEuODM5IDEuMjM3IDEuMDcgMS44MzQgMi44MDcgMS4zMDQgMy40OTIuOTk3LjEwNy0uNzc1LjQxOC0xLjMwNS43NjItMS42MDQtMi42NjUtLjMwNS01LjQ2Ny0xLjMzNC01LjQ2Ny01LjkzMSAwLTEuMzExLjQ2OS0yLjM4MSAxLjIzNi0zLjIyMS0uMTI0LS4zMDMtLjUzNS0xLjUyNC4xMTctMy4xNzYgMCAwIDEuMDA4LS4zMjIgMy4zMDEgMS4yMy45NTctLjI2NiAxLjk4My0uMzk5IDMuMDAzLS40MDQgMS4wMi4wMDUgMi4wNDcuMTM4IDMuMDA2LjQwNCAyLjI5MS0xLjU1MiAzLjI5Ny0xLjIzIDMuMjk3LTEuMjMuNjUzIDEuNjUzLjI0MiAyLjg3NC4xMTggMy4xNzYuNzcuODQgMS4yMzUgMS45MTEgMS4yMzUgMy4yMjEgMCA0LjYwOS0yLjgwNyA1LjYyNC01LjQ3OSA1LjkyMS40My4zNzIuODIzIDEuMTAyLjgyMyAyLjIyMnYzLjI5M2MwIC4zMTkuMTkyLjY5NC44MDEuNTc2IDQuNzY1LTEuNTg5IDguMTk5LTYuMDg2IDguMTk5LTExLjM4NiAwLTYuNjI3LTUuMzczLTEyLTEyLTEyeiIvPjwvc3ZnPg=="
+                    />
+                </a>
+            </div>
+        </div>
+        <ins
+            class="kakao_ad_area"
+            style="display: none"
+            data-ad-unit="DAN-C8q7vKqscLHKi4fM"
+            data-ad-width="300"
+            data-ad-height="250"
+        ></ins>
+        <script
+            type="text/javascript"
+            src="//t1.daumcdn.net/kas/static/ba.min.js"
+            async
+        ></script>
+        <div class="today-kbo-container">
+            <h1>오늘자 게임차 바로보기</h1>
+            <span>1시간 간격으로 업데이트 됩니다.</span>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script>
+            flatpickr('#datepicker', {
+                dateFormat: 'Y-m-d',
+                enableTime: false,
+                minDate: '2000-01-01',
+                maxDate: '2025-12-31',
+                locale: {
+                    rangeSeparator: ' - ',
+                    weekdays: {
+                        shorthand: ['일', '월', '화', '수', '목', '금', '토'],
+                        longhand: [
+                            '일요일',
+                            '월요일',
+                            '화요일',
+                            '수요일',
+                            '목요일',
+                            '금요일',
+                            '토요일',
+                        ],
+                    },
+                    months: {
+                        shorthand: [
+                            '1월',
+                            '2월',
+                            '3월',
+                            '4월',
+                            '5월',
+                            '6월',
+                            '7월',
+                            '8월',
+                            '9월',
+                            '10월',
+                            '11월',
+                            '12월',
+                        ],
+                        longhand: [
+                            '1월',
+                            '2월',
+                            '3월',
+                            '4월',
+                            '5월',
+                            '6월',
+                            '7월',
+                            '8월',
+                            '9월',
+                            '10월',
+                            '11월',
+                            '12월',
+                        ],
+                    },
+                },
+            })
+            function redirectToImage() {
+                var selectedDate = flatpickr('#datepicker').selectedDates[0]
+                if (!selectedDate) {
+                    alert('날짜를 선택해주세요.')
+                    return
+                }
+
+                var year = selectedDate.getFullYear()
+                var month = ('0' + (selectedDate.getMonth() + 1)).slice(-2)
+                var day = ('0' + selectedDate.getDate()).slice(-2)
+
+                var imageUrl = '/static/KBO' + year + '-' + month + '-' + day + '.png'
+
+                window.location.href = imageUrl
+            }
+
+            function createTodayImageElement() {
+                var today = new Date()
+                var year = today.getFullYear()
+                var month = ('0' + (today.getMonth() + 1)).slice(-2)
+                var day = ('0' + today.getDate()).slice(-2)
+
+                var imageUrl = '../static/KBO' + year + '-' + month + '-' + day + '.png'
+
+                var imageElement = document.createElement('img')
+                imageElement.src = imageUrl
+                imageElement.alt = 'KBO ' + year + '-' + month + '-' + day
+
+                var todayContainer = document.querySelector('.today-kbo-container')
+                todayContainer.appendChild(imageElement)
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                createTodayImageElement()
+            })
+        </script>
+    </body>
 </html>
