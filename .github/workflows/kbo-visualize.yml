@@ -8,24 +8,48 @@ on:
         - cron: '*/60 * * * *'
 
 jobs:
-    run:
+    checkout:
         runs-on: ubuntu-latest
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
 
+    setup-python:
+        runs-on: ubuntu-latest
+
+        needs: checkout
+
+        steps:
             - name: Set up Python
               uses: actions/setup-python@v2
               with:
                   python-version: 3.9
 
+    install-dependencies:
+        runs-on: ubuntu-latest
+
+        needs: setup-python
+
+        steps:
             - name: Install dependencies
               run: pip install -r requirements.txt
 
+    execute-app:
+        runs-on: ubuntu-latest
+
+        needs: install-dependencies
+
+        steps:
             - name: Execute app.py
               run: python app.py
 
+    commit-changes:
+        runs-on: ubuntu-latest
+
+        needs: execute-app
+
+        steps:
             - name: Commit changes
               run: |
                   git config --global user.name "gwongibeom"
