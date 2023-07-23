@@ -8,76 +8,28 @@ on:
     - cron: '*/60 * * * *'
 
 jobs:
-  checkout:
+  run:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-  setup-python:
-    runs-on: ubuntu-latest
-
-    needs: checkout
-
-    steps:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
 
-  install-dependencies:
-    runs-on: ubuntu-latest
-
-    needs: setup-python
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Upload changes
-        uses: actions/upload-artifact@v2
-        with:
-          name: changed-files
-          path: .
-
-  execute-app:
-    runs-on: ubuntu-latest
-
-    needs: install-dependencies
-
-    steps:
-      - name: Download changes
-        uses: actions/download-artifact@v2
-        with:
-          name: changed-files
-          path: .
 
       - name: Execute app.py
         run: python app.py
 
-  commit-changes:
-    runs-on: ubuntu-latest
-
-    needs: execute-app
-
-    steps:
-      - name: Download changes
-        uses: actions/download-artifact@v2
-        with:
-          name: changed-files
-          path: .
-
-      - name: Configure Git
+      - name: Commit changes
         run: |
           git config --global user.name "gwongibeom"
           git config --global user.email "k201gun@kakao.com"
-
-      - name: Commit changes
-        run: |
           git add .
           git commit -m "Daily kbo visualize Commit"
           git push
