@@ -1,0 +1,122 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html>
+    <head lang="ko">
+        <title><%= year %>년 <%=month %>월 <%=day %>일 게임차</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/font.css" />
+        <link rel="stylesheet" href="/static/detail.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/static/fav/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="/static/fav/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/static/fav/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/static/fav/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/static/fav/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/static/fav/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/static/fav/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/static/fav/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/static/fav/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/static/fav/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/static/fav/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/static/fav/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/static/fav/favicon-16x16.png"
+        />
+        <meta name="google-site-verification" content="chEIpKCO1edF1RCZe_xR-x2xuTehTjIvkISA_sU51Mg" />
+        <meta name="description" content="크보 게임차 편하게 볼 수 있는 사이트" />
+        <meta property="og:image" content="https://kbo.gwon.us/static/og.png" />
+        <meta name="og:site_name" content="크보 게임차 시각화" />
+        <meta name="og:title" content="크보 게임차 시각화" />
+        <meta name="og:description" content="크보 게임차 편하게 볼 수 있는 사이트" />
+        <meta name="og:type" content="website" />
+        <meta name="og:url" content="https://kbo.gwon.us/" />
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-DFNDCRLZFR"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
+
+            gtag('config', 'G-DFNDCRLZFR')
+        </script>
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7445765260073172"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <div class="wrap">
+            <ins class="kakao_ad_area" style="display:none;"
+                data-ad-unit = "DAN-RRysuaqNhgD9x5DO"
+                data-ad-width = "320"
+                data-ad-height = "50"></ins>
+                <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+            <img src="/static/KBO<%= year %>-<%= month %>-<%= day %>.png">
+        </div>
+    </body>
+</html>

@@ -196,40 +196,39 @@
                 },
             })
             function redirectToImage() {
-                var selectedDate = flatpickr('#datepicker').selectedDates[0]
+                let selectedDate = flatpickr('#datepicker').selectedDates[0]
                 if (!selectedDate) {
                     alert('날짜를 선택해주세요.')
                     return
                 }
 
-                var year = selectedDate.getFullYear()
-                var month = ('0' + (selectedDate.getMonth() + 1)).slice(-2)
-                var day = ('0' + selectedDate.getDate()).slice(-2)
+                let year = selectedDate.getFullYear()
+                let month = ('0' + (selectedDate.getMonth() + 1)).slice(-2)
+                let day = ('0' + selectedDate.getDate()).slice(-2)
 
-                var imageUrl = '/static/KBO' + year + '-' + month + '-' + day + '.png'
+                let imageUrl = `detail/${year}/${month}/${day}`
 
                 window.location.href = imageUrl
             }
 
             function createTodayImageElement() {
-                var today = new Date()
-                var year = today.getFullYear()
-                var month = ('0' + (today.getMonth() + 1)).slice(-2)
-                var day = ('0' + today.getDate()).slice(-2)
+                let today = new Date();
+                let year = today.getFullYear();
+                let month = String(today.getMonth() + 1).padStart(2, '0');
+                let day = String(today.getDate()).padStart(2, '0');
+                        
+                let imageUrl = `../static/KBO${year}-${month}-${day}.png`;
+                        
+                let imageElement = new Image();
+                imageElement.src = imageUrl;
+                imageElement.alt = `KBO ${year}-${month}-${day}`;
+                        
+                let todayContainer = document.querySelector('.today-kbo-container');
+                todayContainer.appendChild(imageElement);
+}
 
-                var imageUrl = '../static/KBO' + year + '-' + month + '-' + day + '.png'
+document.addEventListener('DOMContentLoaded', createTodayImageElement);
 
-                var imageElement = document.createElement('img')
-                imageElement.src = imageUrl
-                imageElement.alt = 'KBO ' + year + '-' + month + '-' + day
-
-                var todayContainer = document.querySelector('.today-kbo-container')
-                todayContainer.appendChild(imageElement)
-            }
-
-            document.addEventListener('DOMContentLoaded', function () {
-                createTodayImageElement()
-            })
         </script>
     </body>
 </html>

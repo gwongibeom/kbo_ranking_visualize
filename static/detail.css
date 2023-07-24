@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    max-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: #202026;
+}
+
+img {
+    max-width: 88%;
+    max-height: 93%;
+}

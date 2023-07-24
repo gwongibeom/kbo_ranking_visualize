@@ -1,6 +1,10 @@
-body {
-    background-color: #202026;
+*{
     margin: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100dvw;
+    background-color: #202026;
     padding: 20px;
     display: flex;
     flex-direction: column;
