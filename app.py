@@ -105,8 +105,8 @@ for i, (logo, value) in enumerate(zip(team_logos, games_behind_values)):
     ax.get_children()[i].set_color(colors.get(team_names[i], "blue"))
 
 ax.text(-1, -1, f'kbo.gwon.us \n {today} {current_time}', transform=ax.transAxes,
-        fontsize=15, color='black', alpha=0.7,
-        ha='left', va='bottom',
+        fontsize=20, color='gray', alpha=0.7,
+        ha='center', va='center', rotation=34,
         font=fpath)
 plt.tight_layout()
 plt.savefig(f'./static/KBO{today}.png', dpi=600, format='png')
