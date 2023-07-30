@@ -10,7 +10,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/robots.txt', (req, res) => {
-    res.sendFile(__dirname + '/robots.txt')
+    res.type("text/plain")
+    res.send(
+        `User-agent: *\nAllow: /\n`
+    )
 })
 
 app.get('/detail/:year/:month/:day', function (req, res) {
