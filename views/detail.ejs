@@ -116,7 +116,12 @@
                 data-ad-width = "320"
                 data-ad-height = "50"></ins>
                 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-            <img src="/static/KBO<%= year %>-<%= month %>-<%= day %>.png">
+            <img src="/static/KBO<%= year %>-<%= month %>-<%= day %>.png" onerror="imageError()">
         </div>
     </body>
+    <script>
+        function imageError() {
+            window.location.href = '/404.html'; // 이미지 로드 실패 시 404 페이지로 이동
+        }
+    </script>
 </html>
